@@ -1,5 +1,7 @@
-const Home = ({ parks }) => {
-  console.log(parks)
+import AddParkForm from "./AddParkForm"
+
+const Home = ({ parks, toggleAddParkModal, isAddParkModalVisible }) => {
+  
 
   return(
     <div className="themeParks">
@@ -8,6 +10,14 @@ const Home = ({ parks }) => {
           <h2 className="parkName">{park.name}</h2>
         </div>
       ))}
+      {isAddParkModalVisible && (
+        <div className="modal">
+          <div className="modalContent">
+            <AddParkForm />
+            <button onClick={toggleAddParkModal}>Cancel</button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
