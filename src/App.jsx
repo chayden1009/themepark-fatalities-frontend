@@ -1,12 +1,10 @@
 import Home from './components/Home'
 import IncidentForm from './components/IncidentForm'
-import parksData from './data/data.json'
 import Nav from './components/Nav'
 import AddParkForm from './components/AddParkForm'
 import ParkDetail from './components/ParkDetail'
 import AddRideForm from './components/AddRideForm'
 import AddIncidentForm from './components/AddIncidentForm'
-// import parksData from './data/data.json'
 import { useEffect, useState } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import './App.css'
@@ -20,6 +18,7 @@ function App() {
   const fetchParks = async () => {
     try {
       const res = await Client.get('/parks');
+      console.log(res.data);
       setParks(res.data);
     } catch (error) {
       console.error("Failed to fetch parks:", error);
