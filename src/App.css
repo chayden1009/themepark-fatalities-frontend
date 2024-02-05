@@ -1,1 +1,50 @@
+a {
+  font-weight: 500;
+  color: var(--primary-accent-color);
+  text-decoration: inherit;
+}
+a:hover {
+  color: (var--primary-accent-color-light);
+}
 
+body {
+  margin: 0 auto;
+  display: flex;
+  padding: 2rem;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--body-font);
+  box-sizing: border-box;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--header-font);
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--secondary-accent-color);
+  color: var(--secondary-accent-text-color);
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: (var--secondary-accent-color-dark);
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
