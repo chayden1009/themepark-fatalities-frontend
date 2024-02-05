@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Action Park",
+    "rides": [
+      {
+        "name": "Alpine Slide",
+        "incidents": [
+          {
+            "data": "July 8, 1980",
+            "description": "On July 8, 1980, a 19-year-old man was killed when his car jumped the track and his head struck a rock. Action Park claimed him as an employee, as a customer death would have to be reported to the state. However, while he had previously worked at the ski resort that would later become Action Park, he was never employed at Action Park itself. "
+          }
+        ]
+      },
+      {
+        "name": "Kayak Experience",
+        "incidents": [
+          {
+            "date": "August 1, 1982",
+            "description": "On August 1, 1982, a 27-year-old man from Long Island got out of his tipped kayak on the Kayak Experience to right it. While doing so, he stepped on a grate that was either in contact with or came too close to a section of live wiring for the underwater fans, causing a severe shock and cardiac arrest. Several other members of his family nearby were also injured. He was taken to a hospital in nearby Warwick, New York, where he died of the shock-induced cardiac arrest. The park at first disputed that the electric current caused his death, saying there were no burns on his body, but the coroner responded that burns generally do not occur in a water-based electrocution. The ride was drained and closed for the investigation. Accounts differed as to the extent of the exposed wiring: the park said it was 'just a nick,' while others said it was closer to 8 inches (20 cm). The state's Labor Department found that the fan was properly maintained and installed and cleared the park of wrongdoing; however it also said that the current had the possibility to cause bodily harm under certain circumstances. While the park said it was vindicated, it never reopened the ride, saying that people would be afraid to go on it afterward."
+          }
+        ]
+      },
+      {
+        "name": "Tidal Wave Pool",
+        "incidents": [
+          {
+            "date": "July 24, 1982",
+            "description": "On July 24, 1982, a 15-year-old boy drowned in the Tidal Wave Pool."
+          },
+          {
+            "date": "1984",
+            "description": "In 1984, a fatal heart attack suffered by one visitor was unofficially believed to have been triggered by the shock of the cold water in the pool beneath the Tarzan Swing. The water on the ride and in that swimming area was 50–60 °F (10–16 °C), while other water areas were in the 70–80 °F (21–27 °C) range more typical of swimming pools. The Tarzan Swing and the Cannonball ride in this area were operated by spring water."
+          },
+          {
+            "date": "August 27, 1984",
+            "description": "August 27, 1984: Donald DePass, a 20-year-old from Brooklyn, drowned in the Tidal Wave Pool."
+          },
+          {
+            "date": "July 19, 1987",
+            "description": "On July 19, 1987, an 18-year-old from Queens drowned in the Tidal Wave Pool."
+          }
+        ]
+      }
+    ],
+    "img": "https://people.com/thmb/EunsSDHw-SZjrl0CLMcRYIjAIFw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(999x0:1001x2)/class-action-park-2-2000-388f9fe87a024a00b5f9e4f0759d0b27.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Adventuredome",
+    "rides": [
+      {
+        "name": "Canyon Blaster",
+        "incidents": [
+          {
+            "date": "July 23, 2008",
+            "description": "On July 23, 2008, a 12-year-old girl from Union City, California, was found unconscious after the train returned to the loading station at the conclusion of the ride. She was airlifted to University Medical Center where she was later pronounced dead. An autopsy revealed that she died from a heart attack."
+          }
+        ]
+      },
+      {
+        "name": "El Loco",
+        "incidents": [
+          {
+            "date": "March 25, 2019",
+            "description": "On March 25, 2019, a woman in her mid-20s was taken to the hospital after sustaining unspecified injuries after being ejected from the ride and falling to the ground. Later reports say that the guest was a double amputee, but it was unclear which limbs this referred to."
+          }
+        ]
+      }
+    ]
+  }
+]
