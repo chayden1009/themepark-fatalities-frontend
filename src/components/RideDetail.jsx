@@ -1,11 +1,10 @@
-
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import Client from '../services/api'
 
 
-const RideDetails = (props) => {
+const RideDetail = (props) => {
     let { id } = useParams()
 
     const [ride, setRide] = useState()
@@ -33,5 +32,5 @@ const RideDetails = (props) => {
     )
 }
 
-export default RideDetails
+export default RideDetail
 
