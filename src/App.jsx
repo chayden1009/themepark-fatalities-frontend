@@ -1,9 +1,9 @@
 import Home from './components/Home'
+import AddIncidentForm from './components/AddIncidentForm'
 import Nav from './components/Nav'
 import AddParkForm from './components/AddParkForm'
 import ParkDetail from './components/ParkDetail'
 import AddRideForm from './components/AddRideForm'
-import AddIncidentForm from './components/AddIncidentForm'
 import { useEffect, useState } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import './App.css'
@@ -41,7 +41,7 @@ function App() {
     })
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e, onSuccess) => {
     e.preventDefault();
     try {
       const res = await Client.post('/parks', parkFormData);
@@ -52,6 +52,7 @@ function App() {
         address: '',
         backgroundImage: '',
       });
+      if (onSuccess) onSuccess();
     } catch (error) {
       console.error("Failed to add park:", error);
     }
@@ -81,9 +82,8 @@ function App() {
       </header>
       <main>
         <Routes>
-          <Route path='/' element={<Home parks={parks} />}/>
           <Route path='/' element={<Home parks={parks} isAddParkModalVisible={isAddParkModalVisible} toggleAddParkModal={toggleAddParkModal}/>}/>
-          <Route path='/addPark' element={<AddParkForm handleChange={handleChange} handleSubmit={handleSubmit} formData={parkFormData} />} />
+          <Route path='/addPark' element={<AddParkForm handleChange={handleChange} handleSubmit={handleSubmit} formData={parkFormData} toggleModal={toggleAddParkModal} />} />
           <Route path='/parks/:parkId' element={<ParkDetail parks={parks} />}/>
           <Route path='/parks/:parkId/addRide' element={<AddRideForm />}/>
           <Route path='/parks/:parkId/addIncident' element={<AddIncidentForm />}/>
