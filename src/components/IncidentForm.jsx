@@ -1,15 +1,16 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import Client from "../services/api"
+
 const IncidentForm = () => {
   const { id } = useParams()
 
   const [park, setPark] = useState('')
 
 
-  const useEffect(() => {
+  useEffect(() => {
     const setState = async () => {
-      let response = await Client.find({_id = id})
+      let response = await Client.find({_id: id})
       setPark(response.data)
     }
     setState()
@@ -29,3 +30,5 @@ const IncidentForm = () => {
     </form>
   )
 }
+
+export default IncidentForm
