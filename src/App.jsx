@@ -19,9 +19,8 @@ function App() {
 
   const fetchParks = async () => {
     try {
-      const response = await fetch('/parks');
-      const data = await response.json();
-      setParks(data);
+      const res = await Client.get('/parks');
+      setParks(res.data);
     } catch (error) {
       console.error("Failed to fetch parks:", error);
     }
