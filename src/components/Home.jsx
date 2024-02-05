@@ -1,8 +1,11 @@
+
 import AddParkForm from "./AddParkForm"
 
 const Home = ({ parks, toggleAddParkModal, isAddParkModalVisible }) => {
   
 
+
+const Home = ({ parks }) => {
   return(
     <div className="themeParks">
       {parks.map(park => (

@@ -1,4 +1,6 @@
 import Home from './components/Home'
+import IncidentForm from './components/IncidentForm'
+import parksData from './data/data.json'
 import Nav from './components/Nav'
 import AddParkForm from './components/AddParkForm'
 import ParkDetail from './components/ParkDetail'
@@ -82,6 +84,7 @@ function App() {
       </header>
       <main>
         <Routes>
+          <Route path='/' element={<Home parks={parks} />}/>
           <Route path='/' element={<Home parks={parks} isAddParkModalVisible={isAddParkModalVisible} toggleAddParkModal={toggleAddParkModal}/>}/>
           <Route path='/addPark' element={<AddParkForm handleChange={handleChange} handleSubmit={handleSubmit} formData={parkFormData} />} />
           <Route path='/parks/:parkId' element={<ParkDetail parks={parks} />}/>
