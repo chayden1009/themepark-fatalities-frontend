@@ -20,7 +20,7 @@ function App() {
       </header>
       <main>
         <Routes>
-          <Route path='/' element={<Home parks={parks} />}/>
+          <Route path='/' element={<Home parks={parks} />}/> 
         </Routes>
       </main>
       <footer>
