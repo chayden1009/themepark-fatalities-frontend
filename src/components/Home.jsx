@@ -5,7 +5,7 @@ const Home = ({ parks }) => {
     <div className="themeParks">
       {parks.map(park => (
         <div key={park.id} style={{backgroundImage:`url(${park.img})`}} className="parkCard">
-          <h1>{park.name}</h1>
+          <h2 className="parkName">{park.name}</h2>
         </div>
       ))}
     </div>
