@@ -1,5 +1,4 @@
 import Home from './components/Home'
-import IncidentForm from './components/IncidentForm'
 import Nav from './components/Nav'
 import AddParkForm from './components/AddParkForm'
 import ParkDetail from './components/ParkDetail'
@@ -17,7 +16,7 @@ function App() {
 
   const fetchParks = async () => {
     try {
-      const res = await Client.get('/parks');
+      const res = await Client.get('/park');
       console.log(res.data);
       setParks(res.data);
     } catch (error) {
