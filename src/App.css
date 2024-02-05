@@ -59,5 +59,14 @@ button:focus-visible {
 
 .parkCard {
   min-width: 40vmax;
+  min-height: 30vmax;
   border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin: 2vmin;
+}
+
+.parkName {
+  background-color: darkslategrey;
 }
