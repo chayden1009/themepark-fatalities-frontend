@@ -2,6 +2,7 @@
   {
     "id": 1,
     "name": "Action Park",
+    "img": "https://people.com/thmb/EunsSDHw-SZjrl0CLMcRYIjAIFw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(999x0:1001x2)/class-action-park-2-2000-388f9fe87a024a00b5f9e4f0759d0b27.jpg",
     "rides": [
       {
         "name": "Alpine Slide",
@@ -42,8 +43,7 @@
           }
         ]
       }
-    ],
-    "img": "https://people.com/thmb/EunsSDHw-SZjrl0CLMcRYIjAIFw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(999x0:1001x2)/class-action-park-2-2000-388f9fe87a024a00b5f9e4f0759d0b27.jpg"
+    ]
   },
   {
     "id": 2,
