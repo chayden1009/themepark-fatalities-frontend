@@ -1,11 +1,17 @@
 import Home from './components/Home'
-import parks from './data/data.json'
-import { useState } from 'react'
+import parksData from './data/data.json'
+import { useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import './App.css'
 
 
 function App() {
+
+  const [parks, setParks] = useState([])
+
+  useEffect(() => {
+    setParks(parksData)
+  }, [])
 
   return (
     <>
@@ -15,8 +21,6 @@ function App() {
       <main>
         <Routes>
           <Route path='/' element={<Home parks={parks} />}/>
-          <Route />
-          <Route />
         </Routes>
       </main>
       <footer>
