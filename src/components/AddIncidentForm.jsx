@@ -11,16 +11,23 @@ const AddIncidentForm = () => {
 
   useEffect(() => {
     const getPark = async () => {
-      let response = await Client.find({_id: parkId})
+
+      let response = await Client.get(`/parks/${parkId}`)
+
       setPark(response.data)
     }
     const getRides = async () => {
-      let response = await Client.get('/rides')
-      setRides(response.data)
+      try {
+        let response = await Client.get('/rides')
+        setRides(response.data)
+      } catch (error) {
+        console.log(error)
+      } 
     }
     getPark()
     getRides()
-  }, [parkId])
+
+  }, [])
 
 
   return (
@@ -39,5 +46,6 @@ const AddIncidentForm = () => {
     </form>
   )
 }
+
 
 export default AddIncidentForm
