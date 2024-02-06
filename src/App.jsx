@@ -16,7 +16,7 @@ function App() {
 
   const fetchParks = async () => {
     try {
-      const res = await Client.get('/park');
+      const res = await Client.get('/parks');
       console.log(res.data);
       setParks(res.data);
     } catch (error) {
@@ -58,6 +58,15 @@ function App() {
     }
   };
 
+  const handleIncidentSubmit = async (e, onSuccess) => {
+    e.preventDefault();
+    try {
+      const res = await Client.post('/incidents', e.response.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   let buttonText, buttonRoute
   if (location.pathname.startsWith('/parks/')) {
     const parkId = location.pathname.split('/')[2];
@@ -86,7 +95,7 @@ function App() {
           <Route path='/addPark' element={<AddParkForm handleChange={handleChange} handleSubmit={handleSubmit} formData={parkFormData} toggleModal={toggleAddParkModal} />} />
           <Route path='/parks/:parkId' element={<ParkDetail parks={parks} />}/>
           <Route path='/parks/:parkId/addRide' element={<AddRideForm />}/>
-          <Route path='/parks/:parkId/addIncident' element={<AddIncidentForm />}/>
+          <Route path='/parks/:parkId/addIncident' element={<AddIncidentForm parks={parks}/>}/>
         </Routes>
       </main>
       <footer>
