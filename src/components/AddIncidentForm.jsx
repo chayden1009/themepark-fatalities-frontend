@@ -31,29 +31,21 @@ const AddIncidentForm = () => {
 
 
   return (
-    <div className="add-park-container">
-      <form>
-        <label htmlFor="name">Name</label>
-        <input type="text" name="name" />
-        <label htmlFor="date">Date</label>
-        <input type="date" name="date" />
-        <label htmlFor="fatalities">Fatalities</label>
-        <input type="number" name="fatalities" />
-        <label htmlFor="injuries">injuries</label>
-        <input type="number" name="injuries" />
-        <label htmlFor="description">Description</label>
-        <input type="text-box" name="description" />
-        { rides ? 
-        <select name="ride">
-          {rides.map(ride => ( <option value={ride._id}>{ride.name}</option>))}
-        </select>
-          : null
-        }
-        <input type="text" name="park" value={park} />
-        <button type="submit">submit</button>
-      </form>
-
-    </div>
+    <form>
+      <input type="text" name="headline" />
+      <input type="date" name="date" />
+      <input type="number" name="fatalities" />
+      <input type="number" name="injuries" />
+      <input type="text" name="description" />
+      <select name="ride">
+        {rides.map(ride => (
+          <option key={ride.id} value={ride.id}>{ride.name}</option>
+        ))}
+      </select>
+      <input type="text" name="park" value={park.name || ''} />
+    </form>
+  )
+}
 
 
 export default AddIncidentForm

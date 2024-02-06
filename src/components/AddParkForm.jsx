@@ -16,7 +16,7 @@ const AddParkForm = ({ toggleModal }) => {
 
   useEffect(() => { 
     fetchParks();
-  }, [parks])
+  }, [])
 
   const [parkFormData, setParkFormData] = useState({
     name: '',

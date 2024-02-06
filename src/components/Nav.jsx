@@ -1,10 +1,11 @@
 import { NavLink } from 'react-router-dom'
 
-const Nav = ({ buttonText, onAddParkClick }) => {
+const Nav = ({ buttonText, onClick }) => {
+
   return (
     <nav>
       <NavLink to="/"><h1>Death Drop</h1></NavLink>
-      <button onClick={onAddParkClick}>{buttonText}</button>
+      <button onClick={onClick}>{buttonText}</button>
     </nav>
   );
 };
