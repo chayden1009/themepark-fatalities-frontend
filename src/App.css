@@ -27,6 +27,7 @@ h1 {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--header-font);
+  margin: 0;
 }
 
 button {
@@ -39,7 +40,7 @@ button {
   background-color: var(--secondary-accent-color);
   color: var(--secondary-accent-text-color);
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all 0.25s ease;
 }
 button:hover {
   border-color: var(--secondary-accent-color-dark);
@@ -66,11 +67,26 @@ button:focus-visible {
   flex-direction: column;
   justify-content: flex-end;
   margin: 2vmin;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-bottom: 0.5rem;
 }
 
-
 .parkName {
-  background-color: darkslategrey;
+  background-color: var(--primary-accent-color-dark);
+  padding: 0 0.5rem;
+  box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.6);
+  transition: all 0.25s ease;
+  color: var(--primary-accent-text-color); 
+}
+
+.parkCard:hover {
+  cursor: pointer;
+  .parkName {
+    background-color: var(--primary-accent-color-light);
+    color: white;
+  }
 }
 
 header {
@@ -98,25 +114,52 @@ nav {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 0 2rem;
+  padding: 1rem 2rem;
 }
 
-.modal {
+.add-park-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem;
+  padding: 1rem;
+  width: 25vmin;
+  border-radius: 1rem;
+  background-color: var(--primary-accent-color);
   position: fixed;
-  z-index: 1;
-  left: 0;
+  z-index: 100;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  gap: 1rem;
+  box-shadow: 2px 4px 10px 5px rgba(0, 0, 0, 0.6);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 1rem;
+}
+
+.modal-backdrop {
+  position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.6); 
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.modalContent {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
+.button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
-

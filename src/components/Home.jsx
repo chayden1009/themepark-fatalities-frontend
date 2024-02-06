@@ -1,22 +1,19 @@
-
+import { Link } from "react-router-dom"
 import AddParkForm from "./AddParkForm"
 
-const Home = ({ parks, toggleAddParkModal, isAddParkModalVisible }) => {
+const Home = ({ parks, toggleModal, isAddParkModalVisible }) => {
   
   return(
     <div className="themeParks">
       {parks.map(park => (
-        <div key={park._id} style={{backgroundImage:`url("${park.backgroundImage}")`}} className="parkCard">
-          <h2 className="parkName">{park.name}</h2>
-        </div>
+        <Link key={park._id} to={`/parks/${park._id}`} style={{ textDecoration: 'none' }}>
+          <div style={{ backgroundImage: `url("${park.backgroundImage}")` }} className="parkCard">
+            <h2 className="parkName">{park.name}</h2>
+          </div>
+        </Link>
       ))}
       {isAddParkModalVisible && (
-        <div className="modal">
-          <div className="modalContent">
-            <AddParkForm />
-            <button onClick={toggleAddParkModal}>Cancel</button>
-          </div>
-        </div>
+        <AddParkForm toggleModal={toggleModal}/>
       )}
     </div>
   )
