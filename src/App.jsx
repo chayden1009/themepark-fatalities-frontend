@@ -17,6 +17,9 @@ function App() {
   const fetchParks = async () => {
     try {
       const res = await Client.get('/parks');
+
+      console.log(res.data);
+
       setParks(res.data);
     } catch (error) {
       console.error("Failed to fetch parks:", error);
@@ -27,7 +30,42 @@ function App() {
     fetchParks();
   }, [parks])
 
-  let buttonText
+
+  const handleChange = (e) => {
+    setParkFormData({
+      ...parkFormData,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const handleSubmit = async (e, onSuccess) => {
+    e.preventDefault();
+    try {
+      const res = await Client.post('/parks', parkFormData);
+      const newPark = res.data;
+      setParks(currentParks => [...currentParks, newPark]);
+      setParkFormData({
+        name: '',
+        address: '',
+        backgroundImage: '',
+      });
+      if (onSuccess) onSuccess();
+    } catch (error) {
+      console.error("Failed to add park:", error);
+    }
+  };
+
+  const handleIncidentSubmit = async (e, onSuccess) => {
+    e.preventDefault();
+    try {
+      const res = await Client.post('/incidents', e.response.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  let buttonText, buttonRoute
+
   if (location.pathname.startsWith('/parks/')) {
     buttonText = 'Add a Ride';
   } else {
@@ -51,7 +89,7 @@ function App() {
           <Route path='/addPark' element={<AddParkForm toggleModal={toggleModal} />} />
           <Route path='/parks/:parkId' element={<ParkDetail parks={parks} />}/>
           <Route path='/parks/:parkId/addRide' element={<AddRideForm />}/>
-          <Route path='/parks/:parkId/addIncident' element={<AddIncidentForm />}/>
+          <Route path='/parks/:parkId/addIncident' element={<AddIncidentForm parks={parks}/>}/>
         </Routes>
       </main>
       <footer>
