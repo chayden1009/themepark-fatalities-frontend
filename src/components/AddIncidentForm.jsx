@@ -28,8 +28,8 @@ const AddIncidentForm = ({ parks }) => {
 
 
   return (
-    <div className="add-park-container">
-      <form>
+    <div className="incident-container">
+      <form className="incident-form">
         <label htmlFor="name">Name</label>
         <input type="text" name="name" />
         <label htmlFor="date">Date</label>
@@ -39,7 +39,7 @@ const AddIncidentForm = ({ parks }) => {
         <label htmlFor="injuries">injuries</label>
         <input type="number" name="injuries" />
         <label htmlFor="description">Description</label>
-        <input type="text-box" name="description" />
+        <input className="description-box" type="text-box" name="description" />
         { rides ? 
         <select name="ride">
           {rides.map(ride => ( <option value={ride._id}>{ride.name}</option>))}
