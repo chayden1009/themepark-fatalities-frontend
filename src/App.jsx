@@ -1,9 +1,9 @@
 import Home from './components/Home'
-import AddIncidentForm from './components/AddIncidentForm'
 import Nav from './components/Nav'
 import AddParkForm from './components/AddParkForm'
 import ParkDetail from './components/ParkDetail'
 import AddRideForm from './components/AddRideForm'
+import AddIncidentForm from './components/AddIncidentForm'
 import { useEffect, useState } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import './App.css'
@@ -17,7 +17,9 @@ function App() {
   const fetchParks = async () => {
     try {
       const res = await Client.get('/parks');
+
       console.log(res.data);
+
       setParks(res.data);
     } catch (error) {
       console.error("Failed to fetch parks:", error);
@@ -26,13 +28,8 @@ function App() {
 
   useEffect(() => { 
     fetchParks();
-  }, [])
+  }, [parks])
 
-  const [parkFormData, setParkFormData] = useState({
-    name: '',
-    address: '',
-    backgroundImage: '',
-  })
 
   const handleChange = (e) => {
     setParkFormData({
@@ -68,31 +65,28 @@ function App() {
   }
 
   let buttonText, buttonRoute
+
   if (location.pathname.startsWith('/parks/')) {
-    const parkId = location.pathname.split('/')[2];
     buttonText = 'Add a Ride';
-    buttonRoute = `/parks/${parkId}/addRide`;
   } else {
     buttonText = 'Add a Park';
-    buttonRoute = '/addPark';
   }
 
   const [isAddParkModalVisible, setIsAddParkModalVisible] = useState(false);
 
-  const toggleAddParkModal = () => {
+  const toggleModal = () => {
     setIsAddParkModalVisible(!isAddParkModalVisible);
   };
   
-
   return (
     <>
       <header>
-        <Nav buttonText={buttonText} buttonRoute={buttonRoute} onAddParkClick={toggleAddParkModal}/>
+        <Nav buttonText={buttonText} onAddParkClick={toggleModal}/>
       </header>
       <main>
         <Routes>
-          <Route path='/' element={<Home parks={parks} isAddParkModalVisible={isAddParkModalVisible} toggleAddParkModal={toggleAddParkModal}/>}/>
-          <Route path='/addPark' element={<AddParkForm handleChange={handleChange} handleSubmit={handleSubmit} formData={parkFormData} toggleModal={toggleAddParkModal} />} />
+          <Route path='/' element={<Home parks={parks} isAddParkModalVisible={isAddParkModalVisible} toggleModal={toggleModal}/>}/>
+          <Route path='/addPark' element={<AddParkForm toggleModal={toggleModal} />} />
           <Route path='/parks/:parkId' element={<ParkDetail parks={parks} />}/>
           <Route path='/parks/:parkId/addRide' element={<AddRideForm />}/>
           <Route path='/parks/:parkId/addIncident' element={<AddIncidentForm parks={parks}/>}/>
