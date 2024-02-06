@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import Client from "../services/api"
 
-const AddIncidentForm = ({ parks }) => {
+const AddIncidentForm = () => {
   const { parkId } = useParams()
 
   const [park, setPark] = useState('')
@@ -11,7 +11,9 @@ const AddIncidentForm = ({ parks }) => {
 
   useEffect(() => {
     const getPark = async () => {
+
       let response = await Client.get(`/parks/${parkId}`)
+
       setPark(response.data)
     }
     const getRides = async () => {
@@ -24,6 +26,7 @@ const AddIncidentForm = ({ parks }) => {
     }
     getPark()
     getRides()
+
   }, [])
 
 
@@ -53,5 +56,6 @@ const AddIncidentForm = ({ parks }) => {
     </div>
   )
 }
+
 
 export default AddIncidentForm
