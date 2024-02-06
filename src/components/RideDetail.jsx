@@ -3,11 +3,10 @@ import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import Client from '../services/api'
 
-
-const RideDetail = (props) => {
+const RideDetail = () => {
     let { id } = useParams()
 
-    const [ride, setRide] = useState()
+    const [ride, setRide] = useState(null)
 
     useEffect(() => {
         const getRide = async () => {
@@ -15,12 +14,12 @@ const RideDetail = (props) => {
             setRide(res.data)
         }
         getRide()
-    }, [props.ride, id])
+    }, [id])
 
     return (
         <div className='detail'>
             <h2>Ride Details</h2>
-            <Link to="/park">Back to Park</Link>
+            <Link to="/park">Back to Parks</Link>
                 <div className="ride-name">
                     <h2>{ride.name}</h2>
                 </div>
