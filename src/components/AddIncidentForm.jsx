@@ -1,8 +1,8 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import Client from "../services/api"
 
-const AddIncidentForm = ({ parks }) => {
+const AddIncidentForm = () => {
   const { parkId } = useParams()
 
   const [park, setPark] = useState('')
@@ -11,7 +11,7 @@ const AddIncidentForm = ({ parks }) => {
 
   useEffect(() => {
     const getPark = async () => {
-      let response = await Client.find({_id: id})
+      let response = await Client.find({_id: parkId})
       setPark(response.data)
     }
     const getRides = async () => {
@@ -19,7 +19,8 @@ const AddIncidentForm = ({ parks }) => {
       setRides(response.data)
     }
     getPark()
-  }, [])
+    getRides()
+  }, [parkId])
 
 
   return (
@@ -31,10 +32,10 @@ const AddIncidentForm = ({ parks }) => {
       <input type="text" name="description" />
       <select name="ride">
         {rides.map(ride => (
-          <option value={ride.id}>{ride.name}</option>
+          <option key={ride.id} value={ride.id}>{ride.name}</option>
         ))}
       </select>
-      <input type="text" name="park" value={park} />
+      <input type="text" name="park" value={park.name || ''} />
     </form>
   )
 }
