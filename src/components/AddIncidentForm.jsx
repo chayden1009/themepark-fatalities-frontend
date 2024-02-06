@@ -25,7 +25,7 @@ const AddIncidentForm = () => {
 
   return (
     <form>
-      <input type="text" name="name" />
+      <input type="text" name="headline" />
       <input type="date" name="date" />
       <input type="number" name="fatalities" />
       <input type="number" name="injuries" />

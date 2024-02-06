@@ -25,33 +25,36 @@ function App() {
 
   useEffect(() => { 
     fetchParks();
-  }, [parks])
-
-  let buttonText
-  if (location.pathname.startsWith('/parks/')) {
-    buttonText = 'Add a Ride';
-  } else {
-    buttonText = 'Add a Park';
-  }
-
-  const [isAddParkModalVisible, setIsAddParkModalVisible] = useState(false);
+  }, [])
 
   const toggleModal = () => {
-    setIsAddParkModalVisible(!isAddParkModalVisible);
+    setIsModalVisible(!isModalVisible);
   };
-  
+
+  let buttonText
+  let onClick
+  if (location.pathname.startsWith('/parks/')) {
+    buttonText = 'Add a Ride';
+    onClick = toggleModal
+  } else {
+    buttonText = 'Add a Park';
+    onClick = toggleModal
+  }
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
   return (
     <>
       <header>
-        <Nav buttonText={buttonText} onAddParkClick={toggleModal}/>
+        <Nav buttonText={buttonText} onClick={onClick}/>
       </header>
       <main>
         <Routes>
-          <Route path='/' element={<Home parks={parks} isAddParkModalVisible={isAddParkModalVisible} toggleModal={toggleModal}/>}/>
+          <Route path='/' element={<Home parks={parks} isModalVisible={isModalVisible} toggleModal={toggleModal}/>}/>
           <Route path='/addPark' element={<AddParkForm toggleModal={toggleModal} />} />
-          <Route path='/parks/:parkId' element={<ParkDetail parks={parks} />}/>
-          <Route path='/parks/:parkId/addRide' element={<AddRideForm />}/>
-          <Route path='/parks/:parkId/addIncident' element={<AddIncidentForm />}/>
+          <Route path='/parks/:parkId' element={<ParkDetail parks={parks} isModalVisible={isModalVisible} toggleModal={toggleModal}/>}/>
+          <Route path='/parks/:parkId/rides' element={<AddRideForm />}/>
+          <Route path='/parks/:parkId/rides/:rideId/incidents' element={<AddIncidentForm />}/>
         </Routes>
       </main>
       <footer>

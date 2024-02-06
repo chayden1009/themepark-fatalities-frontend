@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import AddParkForm from "./AddParkForm"
 
-const Home = ({ parks, toggleModal, isAddParkModalVisible }) => {
+const Home = ({ parks, toggleModal, isModalVisible }) => {
   
   return(
     <div className="themeParks">
@@ -12,7 +12,7 @@ const Home = ({ parks, toggleModal, isAddParkModalVisible }) => {
           </div>
         </Link>
       ))}
-      {isAddParkModalVisible && (
+      {isModalVisible && (
         <AddParkForm toggleModal={toggleModal}/>
       )}
     </div>
