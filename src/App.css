@@ -183,3 +183,19 @@ form {
   flex-wrap: wrap;
   max-width: 100vmax;
 }
+
+.incident-form{
+  display: flex;
+  flex-direction: column;
+}
+
+.description-box {
+  height: 100px;
+  width: 300px;
+}
+
+.incident-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
